@@ -48,7 +48,6 @@ pipeline {
         // Buildthe project and its dependencies
         echo "Code Build"
         bat 'dotnet build -c Release -o "nagp-devops-us/app/build"'
-        bat 'dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -l:trx;LogFileName=nagp-devops-us.xml'
       }
     }
 
@@ -58,6 +57,7 @@ pipeline {
       }
       steps {
         echo "Test Case Execution started"
+        bat 'dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -l:trx;LogFileName=nagp-devops-us.xml'
       }
     }
 
